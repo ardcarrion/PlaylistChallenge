@@ -1,4 +1,5 @@
 package io.zipcoder;
+import java.util.Arrays;
 
 public class Music {
 
@@ -9,6 +10,18 @@ public class Music {
     }
 
     public Integer selection(Integer startIndex, String selection){
-        return null;
+        Integer downIndex;
+        Integer upIndex;
+        for (upIndex = 0; upIndex < startIndex + 1; upIndex++) {
+            if (selection.equals(this.playList[upIndex])) break;
+        }
+        for (downIndex = startIndex; downIndex < this.playList.length; downIndex++) {
+            if(selection.equals(this.playList[downIndex])) break;
+        }
+        if (downIndex < upIndex) {
+            return downIndex;
+        } else {
+            return upIndex;
+        }
     }
 }
